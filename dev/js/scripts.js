@@ -16,8 +16,11 @@ const MainTL = gsap.timeline();
 function LettersFallIn (){
     let tl=gsap.timeline({});
 
-    tl.set("#LOGO", {alpha:0})
-    .from("#b_2", {duration:1,alpha:0, y:-1000,  ease:"circ.out"})
+    
+    tl.set("#b_2",{alpha:100})
+    .set("#s",{alpha:100})
+   .set("#LOGO",{alpha:0})
+    .from("#b_2", {duration:1,alpha:100, y:-1000,  ease:"circ.out"})
     .from("#l_2",{duration:1, alpha:0, y:-1000,  ease:"circ.out"},"-=0.75") 
     .from("#a_3",{duration:1, alpha:0, y:-1000,  ease:"circ.out"},"-=0.75") 
     .from("#c",{duration:1, alpha:0, y:-1000,  ease:"circ.out"},"-=0.75") 
@@ -37,7 +40,42 @@ function LettersFallIn (){
     return tl;
 }
 
-function 
+function LettersFadeOut(){
+    let tl=gsap.timeline({});
+    tl.to(".black", { duration:0.75, alpha:0, stagger:{each:0.2, from:"end"}},"label")
+    tl.to(".sand", { duration:0.75, alpha:0, stagger:{each:0.2, from:"end"}},"label")
+    tl.to(".library", { duration:0.75, alpha:0, stagger:{each:0.2, from:"end"}},"label")
+    ;
+    return tl;
+}
+
+function LettersMoveRightward(){
+    let tl=gsap.timeline({});
+    tl.to("#s", {duration:3, x:-156, ease:"circ.out"},"label1")
+    tl.to("#l", {duration:3, x:-302, ease:"circ.out"},"label1")
+    ;
+    return tl;
+}
+
+function MorphSVG(){
+    let tl=gsap.timeline({});
+    
+    tl
+    .to("#l", {duration:0.5, morphSVG:"#s" })
+    .set("#b_2", {alpha:0})
+    .set("#s", {alpha:0})
+    .to("#l", {duration:0.5, morphSVG:"#b_2" })
+    .set("#LOGO", {alpha:100})
+    .to("#l", {duration:0.5, morphSVG:"#LOGO", alpha:100})
+    .set("#LOGO", {alpha:100})
+    
+    .to("#l", {color:"#D6FF7E"})
+    ;
+    return tl;
+}
 MainTL
 .add(LettersFallIn())
+.add(LettersFadeOut())
+.add(LettersMoveRightward())
+.add(MorphSVG())
 ;
