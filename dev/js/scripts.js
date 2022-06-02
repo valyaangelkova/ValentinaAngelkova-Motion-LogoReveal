@@ -17,7 +17,9 @@ function LettersFallIn (){
     let tl=gsap.timeline({});
 
     
-    tl.set("#b_2",{alpha:100})
+    tl
+  
+    .set("#b_2",{alpha:100})
     .set("#s",{alpha:100})
    .set("#LOGO",{alpha:0})
     .from("#b_2", {duration:1,alpha:100, y:-1000,  ease:"circ.out"})
@@ -83,15 +85,15 @@ function MorphSVG(){
 function Bounce(){
     let tl=gsap.timeline({});
 
-    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1})
-    .to("#LOGO", {duration:0.5, scale:1,transformOrigin:"center", alpha:1})
+    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
+    //.to("#LOGO", {duration:0.5, scale:1,transformOrigin:"center", alpha:1})
     ;
     return tl;
 }
 
 function ScaleUp(){
     let tl=gsap.timeline({});
-tl.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power1", x:100})
+tl.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power4.out"})
 .to("#LOGO", {duration:0.5, fill:"#D6FF7E", ease: "slow(0.4, 0.5, false)"},"label")
 .to("#background", {duration:0.5, fill:"#2B3927",ease: "slow(0.4, 0.5, false)"},"label")
 
@@ -100,12 +102,14 @@ return tl;
 
 }
 MainTL
+
 .add(LettersFallIn())
 .add(LettersFadeOut())
 //.add(LettersMoveLeftward(),"-=25%")
 .add(MorphSVG(),"-=25%")
 .add(Bounce(),"-=1.6")
-.add(ScaleUp(),"-=30%")
+.add(ScaleUp(),"-=48.5%")
 ;
 
 GSDevTools.create();
+CustomWiggle.create("funWiggle", {wiggles:2, type: "easeIn"});
