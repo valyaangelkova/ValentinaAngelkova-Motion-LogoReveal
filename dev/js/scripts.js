@@ -72,19 +72,29 @@ function MorphSVG(){
     .to("b_2", {duration:1.5, morphSVG:"#LOGO"}, "morph")
     .to("l", {duration:1.5, morphSVG:"#LOGO"}, "morph")
     .to("#b_2", {duration:0.1,  alpha:0}, "toLogo")
-    .to("#LOGO", {duration:1.5, alpha:1}, "toLogo")
-  
+    .to("#LOGO", {duration:1, alpha:1}, "toLogo")
     
     
+    
+    
+    ;
+    return tl;
+}
+function Bounce(){
+    let tl=gsap.timeline({});
+
+    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1})
+    .to("#LOGO", {duration:0.5, scale:1,transformOrigin:"center", alpha:1})
     ;
     return tl;
 }
 
 function ScaleUp(){
     let tl=gsap.timeline({});
-tl.to("#LOGO", {duration:2, scale:2, rotation: 360, ease:"circ.out", x:100})
-.to("#LOGO", {duration:0.5, fill:"#D6FF7E", ease: "slow(0.3, 0.4, false)"},"label")
-.to("#background", {duration:0.5, fill:"#2B3927",ease: "slow(0.3, 0.4, false)"},"label")
+tl.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power1", x:100})
+.to("#LOGO", {duration:0.5, fill:"#D6FF7E", ease: "slow(0.4, 0.5, false)"},"label")
+.to("#background", {duration:0.5, fill:"#2B3927",ease: "slow(0.4, 0.5, false)"},"label")
+
 ;
 return tl;
 
@@ -93,8 +103,9 @@ MainTL
 .add(LettersFallIn())
 .add(LettersFadeOut())
 //.add(LettersMoveLeftward(),"-=25%")
-.add(MorphSVG(),"-=15%")
-.add(ScaleUp(),"-=50%")
+.add(MorphSVG(),"-=25%")
+.add(Bounce(),"-=1.6")
+.add(ScaleUp(),"-=30%")
 ;
 
 GSDevTools.create();
