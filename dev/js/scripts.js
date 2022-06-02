@@ -49,7 +49,7 @@ function LettersFadeOut(){
     return tl;
 }
 
-function LettersMoveRightward(){
+function LettersMoveLeftward(){
     let tl=gsap.timeline({});
     tl.to("#s", {duration:3, x:-156, ease:"circ.out"},"label1")
     tl.to("#l", {duration:3, x:-302, ease:"circ.out"},"label1")
@@ -76,6 +76,6 @@ function MorphSVG(){
 MainTL
 .add(LettersFallIn())
 .add(LettersFadeOut())
-.add(LettersMoveRightward())
+.add(LettersMoveLeftward())
 .add(MorphSVG())
 ;
