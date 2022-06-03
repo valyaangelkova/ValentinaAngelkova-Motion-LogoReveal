@@ -82,18 +82,19 @@ function MorphSVG(){
     ;
     return tl;
 }
-function Bounce(){
-    let tl=gsap.timeline({});
-
-    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
-    //.to("#LOGO", {duration:0.5, scale:1,transformOrigin:"center", alpha:1})
-    ;
-    return tl;
-}
+//function Bounce(){
+//    let tl=gsap.timeline({});
+//
+//    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
+//    //.to("#LOGO", {duration:0.5, scale:1,transformOrigin:"center", alpha:1})
+//    ;
+//    return tl;
+//}
 
 function ScaleUp(){
     let tl=gsap.timeline({});
-tl.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power4.out"})
+    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
+.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power4.out"})
 .to("#LOGO", {duration:0.5, fill:"#D6FF7E", ease: "slow(0.4, 0.5, false)"},"label")
 .to("#background", {duration:0.5, fill:"#2B3927",ease: "slow(0.4, 0.5, false)"},"label")
 
@@ -107,8 +108,8 @@ MainTL
 .add(LettersFadeOut())
 //.add(LettersMoveLeftward(),"-=25%")
 .add(MorphSVG(),"-=25%")
-.add(Bounce(),"-=1.6")
-.add(ScaleUp(),"-=48.5%")
+//.add(Bounce(),"-=1.6")
+.add(ScaleUp(), "-=48.5%")
 ;
 
 GSDevTools.create();
