@@ -3,13 +3,13 @@ import { gsap } from "gsap";
 
 import { GSDevTools } from "gsap/GSDevTools";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
-import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
+
 
 import { CustomEase } from "gsap/CustomEase";
 import { CustomWiggle } from "gsap/CustomWiggle";
 
 //import { MotionPathHelper } from "gsap/MotionPathHelper";
-gsap.registerPlugin(GSDevTools, MorphSVGPlugin, CustomEase, CustomWiggle, ExpoScaleEase,RoughEase, SlowMo );
+gsap.registerPlugin(GSDevTools, MorphSVGPlugin, CustomEase, CustomWiggle );
 
 const MainTL = gsap.timeline();
 
