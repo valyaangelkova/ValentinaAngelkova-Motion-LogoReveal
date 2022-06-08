@@ -47,9 +47,13 @@ function LettersFadeOut(){
     tl.to(".black", { duration:1.25, alpha:0, stagger:{each:0.2, from:"end"}},"label")
     tl.to(".sand", { duration:1.25, alpha:0, stagger:{each:0.2, from:"end"}},"label")
     tl.to(".library", { duration:1.25, alpha:0, stagger:{each:0.2, from:"end"}},"label")
+    //tl.to("#b_2", {duration:0.5, scale:1.5},"-=0.5,label2")
+    //tl.to("#s", {duration:0.5, scale:1.5},"label2")
+   // tl.to("#l", {duration:0.5, scale:1.5},"label2")
     ;
     return tl;
 }
+
 
 //function LettersMoveLeftward(){
 //    let tl=gsap.timeline({});
@@ -63,18 +67,20 @@ function MorphSVG(){
     let tl=gsap.timeline({});
     
     tl
-    .to("#l", {duration:1.5, morphSVG:"#s", ease:"back.in" },"label")
-    .to("#s", {duration:0.1, alpha:0}, "-=0.25")
+    .to("#l", {duration:0.3, scaleX:3}, "stretch")
+    .to("#l", {duration:1.5, scaleX:1, morphSVG:"#s", ease:"back.in" },"label")
+    .to("#s", {duration:0.1, scaleX:1, alpha:0}, "toLogo")
     
    // .to("#l", {duration:1, morphSVG:"#b_2", ease:"back.in" })
     //.to("#b_2", {duration:0.3, alpha:0}, "-=0.25")
-    .to("#l", {duration:0.1,  alpha:0}, "toLogo")
-    .to("#b_2",{duration:1.5, morphSVG:"#s", ease:"back.in" },"label")
+    .to("#b_2", {duration:0.3, scaleX:-3}, "stretch")
+    .to("#l", {duration:0.1, scaleX:1, alpha:0}, "toLogo")
+    .to("#b_2",{duration:1.5, scaleX:1, morphSVG:"#s", ease:"back.in" },"label")
     
     .to("b_2", {duration:1.5, morphSVG:"#LOGO"}, "morph")
-    .to("l", {duration:1.5, morphSVG:"#LOGO"}, "morph")
-    .to("#b_2", {duration:0.1,  alpha:0}, "toLogo")
-    .to("#LOGO", {duration:1, alpha:1}, "toLogo")
+    .to("l", {duration:1.5,  morphSVG:"#LOGO"}, "morph")
+    .to("#b_2", {duration:0.1,scaleX:1,   alpha:0}, "toLogo")
+    .to("#LOGO", {duration:1, scaleX:1, alpha:1}, "toLogo")
     
     
     
@@ -93,8 +99,8 @@ function MorphSVG(){
 
 function ScaleUp(){
     let tl=gsap.timeline({});
-    tl.to("#LOGO", {duration:0.5, scale:1.5,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
-.to("#LOGO", {transformOrigin:"top", duration:2, scale:2, rotation: 360, ease: "power4.out"})
+    tl.to("#LOGO", {duration:0.5, scale:2,transformOrigin:"center", alpha:1, rotation:25, ease:"funWiggle"})
+.to("#LOGO", {transformOrigin:"top", duration:2, scale:2.5, rotation: 360, ease: "power4.out"})
 .to("#LOGO", {duration:0.5, fill:"#D6FF7E", ease: "slow(0.4, 0.5, false)"},"label")
 .to("#background", {duration:0.5, fill:"#2B3927",ease: "slow(0.4, 0.5, false)"},"label")
 
